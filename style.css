@@ -1,0 +1,238 @@
+/* ==========================================================================
+   K MANOJ — CINEMATIC AI PORTFOLIO DESIGN SYSTEM
+   Editorial, Dark-Mode Visual Hierarchy with Crimson Accents
+   ========================================================================== */
+
+/* --- CSS Variables & Design Tokens --- */
+:root {
+  --bg-primary: #080808;
+  --bg-surface: #0c0c0c;
+  --bg-surface-elevated: #111111;
+  --accent-crimson: #C8102E;
+  --accent-crimson-glow: rgba(200, 16, 46, 0.45);
+  --accent-burgundy: #5B0712;
+  --text-primary: #F5F5F5;
+  --text-muted: #A0A0A0;
+  --border-subtle: #292929;
+  --border-active: #404040;
+  
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Base reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+  background-color: var(--bg-primary);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-crimson);
+}
+
+/* Typography Utility Classes */
+.font-display { font-family: var(--font-display); }
+.font-body { font-family: var(--font-body); }
+.font-mono { font-family: var(--font-mono); }
+
+.text-gradient-crimson {
+  background: linear-gradient(135deg, #ffffff 10%, #ff4d68 50%, var(--accent-crimson) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Blueprint Grid Background Pattern */
+.blueprint-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(41, 41, 41, 0.6) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(41, 41, 41, 0.6) 1px, transparent 1px);
+}
+
+/* Scanline Effect */
+.scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.35) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.03),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.03)
+  );
+  background-size: 100% 3px, 6px 100%;
+}
+
+/* Radial Glows */
+.bg-radial-glow {
+  background: radial-gradient(circle, rgba(200, 16, 46, 0.35) 0%, rgba(91, 7, 18, 0.15) 50%, transparent 75%);
+}
+
+.bg-radial-burgundy {
+  background: radial-gradient(circle, rgba(91, 7, 18, 0.45) 0%, rgba(8, 8, 8, 0) 70%);
+}
+
+.bg-radial-crimson-halo {
+  background: radial-gradient(circle, rgba(200, 16, 46, 0.5) 0%, rgba(91, 7, 18, 0.3) 40%, transparent 75%);
+}
+
+/* Hero Watermark Behind Cutout */
+.hero-watermark {
+  -webkit-text-stroke: 1.5px rgba(200, 16, 46, 0.22);
+  color: transparent;
+  user-select: none;
+  transition: all 0.5s ease;
+  letter-spacing: -0.05em;
+}
+
+/* Hero Vignette */
+.hero-vignette {
+  background: linear-gradient(to top, rgba(8, 8, 8, 1) 0%, rgba(8, 8, 8, 0.6) 20%, transparent 60%),
+              radial-gradient(circle at center, transparent 40%, rgba(8, 8, 8, 0.4) 100%);
+}
+
+/* Buttons */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+.btn-primary:hover::after {
+  left: 100%;
+}
+
+/* Chip Styles */
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 6px 12px;
+  background-color: #121212;
+  border: 1px solid var(--border-subtle);
+  border-radius: 2px;
+  color: #D1D1D1;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: 0.02em;
+}
+.skill-chip:hover {
+  border-color: var(--accent-crimson);
+  color: #ffffff;
+  transform: translateY(-2px);
+  background-color: #180508;
+  box-shadow: 0 4px 12px rgba(200, 16, 46, 0.2);
+}
+
+/* Project Cards */
+.project-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+}
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(200, 16, 46, 0.7);
+  box-shadow: 0 14px 35px -10px rgba(200, 16, 46, 0.25);
+}
+
+/* Process Cards */
+.process-card {
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.process-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-crimson);
+  box-shadow: 0 10px 25px -8px rgba(200, 16, 46, 0.3);
+}
+
+/* Contact Tiles */
+.contact-tile {
+  transition: all 0.25s ease;
+}
+.contact-tile:hover {
+  transform: translateX(4px);
+}
+
+/* Navigation Link Underline Hover */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-crimson);
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Focus States */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--accent-crimson);
+  outline-offset: 2px;
+}
+
+/* Utility Animations */
+@keyframes pulseSubtle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+.animate-pulse-slow {
+  animation: pulseSubtle 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-watermark {
+    font-size: 24vw;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
