@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-primary: #070707;
+    --accent-crimson: #C8102E;
+    --accent-dark-crimson: #5B0712;
+  }
+
+  body {
+    background-color: #070707;
+    color: #F5F5F5;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+.font-bebas {
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.font-script {
+  font-family: 'Dancing Script', cursive;
+}
+
+.font-display {
+  font-family: 'Syne', sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Watermark text behind portrait matching the reference image */
+.hero-watermark-text {
+  font-family: 'Bebas Neue', 'Syne', sans-serif;
+  letter-spacing: -0.01em;
+  color: #b51227;
+  line-height: 0.82;
+  text-shadow: 0 0 80px rgba(220, 20, 50, 0.5);
+  user-select: none;
+}
+
+/* Crimson background glow matching reference */
+.bg-crimson-vignette {
+  background: radial-gradient(ellipse 70% 65% at 50% 50%, rgba(195, 16, 42, 0.5) 0%, rgba(100, 8, 20, 0.3) 45%, rgba(7, 7, 7, 0.98) 78%);
+}
+
+.blueprint-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #070707;
+}
+::-webkit-scrollbar-thumb {
+  background: #252525;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C8102E;
+}
