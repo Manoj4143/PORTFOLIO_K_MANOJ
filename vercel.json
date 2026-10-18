@@ -1,0 +1,11 @@
+{
+  "buildCommand": "npm --prefix react-portfolio run build",
+  "outputDirectory": "react-portfolio/dist",
+  "framework": "vite",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
