@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm --prefix react-portfolio run build",
+  "buildCommand": "cd react-portfolio && npm install && npm run build",
   "outputDirectory": "react-portfolio/dist",
   "framework": "vite",
   "rewrites": [
